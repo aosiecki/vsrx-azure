@@ -58,7 +58,7 @@
           "metadata": {
             "description": "vSRX user name"
           },
-          "defaultValue": "demo"
+          "defaultValue": "demo-user"
         },
         "vsrx-password": {
           "type": "securestring",
@@ -96,7 +96,7 @@
         "vnet-trust-subnet-name": {
           "type": "string",
           "metadata": {
-            "description": "Trust subnet name"
+            "description": "Trust subnet name. new or exiting"
           },
           "defaultValue": "Trust"
         },
@@ -110,7 +110,7 @@
         "vnet-untrust-subnet-name": {
           "type": "string",
           "metadata": {
-            "description": "Untrust subne name"
+            "description": "Untrust subnet name. new or existing"
           },
           "defaultValue": "Untrust"
         },
@@ -176,7 +176,7 @@
         }
     },
 
-    "resources": [  
+    "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
             "name": "[variables('storageAccountName')]",
