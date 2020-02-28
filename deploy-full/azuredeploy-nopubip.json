@@ -150,7 +150,7 @@
         "vnet-trust-subnet-id": "[concat(variables('vnet-id'),'/subnets/', variables('vnet-trust-subnet-name'))]",
         "vnet-mgt-subnet-id": "[concat(variables('vnet-id'),'/subnets/', variables('vnet-mgt-subnet-name'))]",
 
-        "vsrx-pip-fxp0-id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('vsrxVM').pipNameFxp0)]",
+
         "vsrx-pip-ge000-id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('vsrxVM').pipNameGe000)]",
         "plan-byol": {
           "name": "vsrx-byol-azure-image",
@@ -185,18 +185,6 @@
             "properties": {
               "accountType": "Standard_LRS"
             }
-        },
-        {
-          "type": "Microsoft.Network/publicIPAddresses",
-          "name": "[variables('vsrxVM').pipNameFxp0]",
-          "apiVersion": "2016-03-30",
-          "location": "[resourceGroup().location]",
-          "properties": {
-            "publicIPAllocationMethod": "Dynamic",
-            "dnsSettings": {
-              "domainNameLabel": "[concat(variables('vsrxVM').pipNameFxp0, resourceGroup().name)]"
-            }
-          }
         },
         {
           "type": "Microsoft.Network/publicIPAddresses",
@@ -300,8 +288,8 @@
            "name": "[variables('vsrxVM').mgtNicName]",
            "location": "[resourceGroup().location]",
            "dependsOn": [
-             "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]",
-             "[concat('Microsoft.Network/publicIPAddresses/', variables('vsrxVM').pipNameFxp0)]"
+             "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]"
+
            ],
            "properties": {
              "ipConfigurations": [
@@ -309,9 +297,6 @@
                  "name": "ipconfig1",
                  "properties": {
                    "privateIPAllocationMethod": "Dynamic",
-                   "publicIPAddress": {
-                     "id": "[variables('vsrx-pip-fxp0-id')]"
-                   },
                    "subnet": {
                      "id": "[variables('vnet-mgt-subnet-id')]"
                    }
