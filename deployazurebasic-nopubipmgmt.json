@@ -55,30 +55,30 @@
         "vnet-name": {
             "type": "string",
             "metadata": {
-                "description": "Virtual network name. using an existing value will deploy into that vnet"
+                "description": "Virtual network name. This is just for deployment of temp management network"
             },
-            "defaultValue": ""
+            "defaultValue": "vsrx-lab-vnet"
         },
         "vnet-prefix": {
             "type": "string",
             "metadata": {
                 "description": "Virtual network prefix"
             },
-            "defaultValue": ""
+            "defaultValue": "192.168.255.0/24"
         },
         "vnet-mgt-subnet-name": {
             "type": "string",
             "metadata": {
                 "description": "Management subnet name"
             },
-            "defaultValue": ""
+            "defaultValue": "vsrx-mgmt-snet"
         },
         "vnet-mgt-subnet-prefix": {
             "type": "string",
             "metadata": {
                 "description": "Management subnet prefix"
             },
-            "defaultValue": ""
+            "defaultValue": "192.168.255.0/28"
         }
     },
     "variables": {
@@ -145,7 +145,7 @@
                         "properties": {
                             "addressPrefix": "[parameters('vnet-mgt-subnet-prefix')]"
                         }
-                    }
+                    }               
                 ]
             }
         },
@@ -155,8 +155,7 @@
             "name": "[variables('vsrxVM').mgtNicName]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]",
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('vsrxVM').pipNameFxp0)]"
+                "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]"
             ],
             "properties": {
                 "ipConfigurations": [
