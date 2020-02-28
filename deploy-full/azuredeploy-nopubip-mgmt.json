@@ -289,7 +289,7 @@
            "location": "[resourceGroup().location]",
            "dependsOn": [
              "[concat('Microsoft.Network/virtualNetworks/', variables('vnet-name'))]",
-
+             "[concat('Microsoft.Network/publicIPAddresses/', variables('vsrxVM').pipNameFxp0)]"
            ],
            "properties": {
              "ipConfigurations": [
