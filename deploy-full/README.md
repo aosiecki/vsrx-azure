@@ -12,3 +12,10 @@ Deploy without Public IP for mgmt:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faosiecki%2Fvsrx-azure%2Fmaster%2Fdeploy-full%2Fazuredeploy-nopubip.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
+
+Deploy without Public IP for mgmt - Existing GatewaySubnet:
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Faosiecki%2Fvsrx-azure%2Fmaster%2Fdeploy-full%2Fazuredeploy-nopubip-gatewaysubnet.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
